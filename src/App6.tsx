@@ -9,7 +9,7 @@ function App6() {
         GUN,
         ARROW
     }
-
+    
     const [weaponState, setWeaponState] = useState<Weapon>(Weapon.SWORD);
     /*
         select 요소에 change 이벤트가 발생했을 때 발생하는 이벤트 객체의 type 은

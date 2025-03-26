@@ -14,12 +14,13 @@ const Friends: FC<FriendsProps> = ({ list, onDelete }) => {
         <>
             <h2>친구 목록</h2>
             <ul>
-                {list.map((item, index) =>
+                {list.map((item, idx) =>
                     <li key={uuid()}>
                         {item}
                         {/* e 때문에 onDelete 만 쓰는 거 안됨 */}
                         {/* 그냥 쓰면 걍 void 로 들어감 */}
-                        <button onClick={()=>onDelete(index)}>x</button>
+                        {/* idx 는 클릭한 요소의 인덱스 번호를 넣어줌 */}
+                        <button onClick={()=>onDelete(idx)}>x</button>
                     </li>
                 )}
             </ul>
