@@ -7,7 +7,6 @@ enum Type {
     ADD = "add",
     RESET = "reset",
     REMOVE = "remove"
-
 }
 
 interface Action {
