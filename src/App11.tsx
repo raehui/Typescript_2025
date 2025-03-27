@@ -41,6 +41,7 @@ const reducer = (state: State, action: Action): State => {
     if (action.type === ActionType.ADD) {
         newState = {
             ...state,
+            // name 의 타입은 string 이지만 action.payload 는 string 도 undefined 가 될 수 있기에 || 로 undefinde 면 "" 을 넣어라!
             friends: [...state.friends, { id: uuid(), name: action.payload || ""}] // 기존의 배열에 object를 요소로  하나 추가하기
         }
     } else if (action.type === ActionType.RESET) {
@@ -88,12 +89,12 @@ const initState: State = {
 }
 
 
-
 function Friends() {
     // useReducer(리듀서 함수, 초기 상태값)
     // 초기의 state 은 {userName: " ", friends:[ ]} 
     const [state, dispatch] = useReducer(reducer, initState);
     // 처음에는 입력값이 없으니 null 작성
+    // 렌더링 input 요소를 아직 인식하지 못했기에 null로 설정해야 함
     const inputName = useRef<HTMLInputElement>(null);
 
     return (
