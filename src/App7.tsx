@@ -33,13 +33,19 @@ function App7() {
             [name]: name === "price" ? Number(value) : value
         });
     }
+    // 상품을 추가하는 함수
+    function addPhone(p:Product){
+        alert("추가 했습니다.");
+    }
 
     return (
         <div>
             <pre>{JSON.stringify(state, null, 4)}</pre>
             <input type="text" name="name" placeholder="상품명..." value={state.name} onChange={handleChange} />
             <input type="text" name="price" placeholder="가격" value={state.price} onChange={handleChange} />
-            <button>추가</button>
+            <button onClick={()=>{
+                addPhone(state);
+            }}>추가</button>
             <h1>폰 목록</h1>
             <ul>
                 {phoneList.map(item => <li key={item.id}>{`${item.id} ${item.name} ${item.price}원`}</li>)}
